@@ -231,7 +231,7 @@ const HomePage = () => {
       </div>
 
       {/* Right Section */}
-      <div style={styles.rightSectionStyle}>
+      <div style={styles.rightSectionStyle} >
         <div style={styles.mainImageStyle}>
           {/* Price Tag */}
           <div style={styles.priceTagStyle}>
@@ -244,7 +244,7 @@ const HomePage = () => {
             <button style={styles.buttonStyle}>Book Now</button>
           </div>
         </div>
-
+        <div className='w-[50%] flex flex-col'>
         <div style={styles.smallImageContainerStyle}>
           {/* Secondary Image */}
           <div style={styles.secondaryImageStyle}></div>
@@ -255,9 +255,11 @@ const HomePage = () => {
           <div style={styles.secondaryImageStyle}></div>
           <div style={styles.secondaryImageStyle}></div>
         </div>
+        </div>
 
-        <button style={styles.exploreButtonStyles}>Explore More Properties</button>
       </div>
+      <button style={styles.exploreButtonStyles}>Explore More Properties</button>
+
       
     </div>
    
@@ -705,10 +707,14 @@ const styles = {
   },
 
    rightSectionStyle : {
-    width: '35%',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
    mainImageStyle : {
+    width: '48%',
     backgroundColor: '#ddd',
     height: '650px',
     borderRadius: '10px',
@@ -716,16 +722,16 @@ const styles = {
   },
 
    secondaryImageStyle : {
+    width: '50%',
     backgroundColor: '#ddd',
-    height: '160px',
-    width: '48%',
+    height: '260px',
     borderRadius: '10px',
     marginBottom: '10px',
   },
 
    smallImageContainerStyle : {
     display: 'flex',
-    justifyContent: 'space-between',
+    gap: '20px',
     
   },
 

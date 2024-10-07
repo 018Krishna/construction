@@ -456,7 +456,7 @@ const styles = {
     justifyContent: 'center',
     gap: '55px',
     marginBottom: '30px',
-    marginLeft:'-990px'
+    marginLeft:'-840px'
   },
   exploreButton: {
     backgroundColor: '#ff6b00',
@@ -485,7 +485,7 @@ const styles = {
     justifyContent: 'center',
     gap: '140px',
     marginTop: '30px',
-    marginLeft:'-890px'
+    marginLeft:'-710px'
   },
   featureItem: {
     display: 'flex',

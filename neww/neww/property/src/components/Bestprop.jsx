@@ -1,72 +1,25 @@
 import React from 'react';
+import { Home, Building, Calendar } from 'lucide-react';
 
-// Inline styles object
-const styles = {
-  container: {
-    padding: '20px',
-    fontFamily: 'Arial, sans-serif',
-  },
-  sectionTitle: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  cardWrapper: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)', // Two columns for cards
-    gap: '20px', // Space between cards
-  },
-  ownerCard: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: '10px',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'row', // Changed to row to place image and details side by side
-    justifyContent: 'space-between',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    maxWidth: '500px',
-  },
-  ownerImage: {
-    width: '200px', // Adjusted width
-    height: '270px',
-    backgroundColor: '#e0e0e0',
-    borderRadius: '15px', // Rounded image
-    marginRight: '20px', // Added space between image and details
-  },
-  ownerDetails: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    flexGrow: 1,
-  },
-  ownerName: {
-    fontSize: '30px',
-    fontWeight: 'bold',
-    marginBottom: '5px',
-    justifyContent: 'top',
-    padding:'1px'
-  },
-  contactEmail: {
-    fontSize: '14px',
-    color: '#888',
-    marginBottom: '10px',
-  },
-  propertyInfo: {
-    fontSize: '14px',
-    marginBottom: '10px',
-  },
-  appointmentButton: {
-    padding: '10px 20px',
-    backgroundColor: '#ff6600',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    alignSelf: 'flex-start', // Align button to the start
-  },
-  
-};
+const OwnerCard = ({ owner }) => (
+  <div className="bg-gray-100 rounded-lg p-6 flex flex-col md:flex-row gap-6">
+    <div className="w-full md:w-1/3 bg-gray-300 rounded-lg h-64 md:h-auto"></div>
+    <div className="w-full md:w-2/3 flex flex-col justify-between py-2">
+      <div>
+        <h3 className="text-2xl font-bold mb-2">{owner.name}</h3>
+        <p className="text-gray-600 mb-4">{owner.email}</p>
+        <div className="space-y-2">
+          <p className="flex items-center"><Home size={16} className="mr-2" /> {owner.houses} House</p>
+          <p className="flex items-center"><Building size={16} className="mr-2" /> {owner.apartments} Apartment</p>
+          <p className="flex items-center"><Building size={16} className="mr-2" /> {owner.flats} Flats</p>
+        </div>
+      </div>
+      <button className="bg-orange-500 text-white px-6 py-3 sm:py-[10px] sm:px-4 sm:rounded-md rounded-full mt-3 sm:w-52 flex items-center justify-center max-sm:w-full ">
+        <Calendar size={20} className="mr-2" /> Make Appointment
+      </button>
+    </div>
+  </div>
+);
 
 const Bestprop = () => {
   // Dummy data representing property owners
@@ -102,23 +55,11 @@ const Bestprop = () => {
   ];
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.sectionTitle}>Best Property Owner</h2>
-      <div style={styles.cardWrapper}>
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-3xl font-bold mb-8">Best Property Owner</h2>
+      <div className="grid md:grid-cols-2 gap-8">
         {owners.map((owner, index) => (
-          <div key={index} style={styles.ownerCard}>
-            <div style={styles.ownerImage}></div>
-            <div style={styles.ownerDetails}>
-              <div style={styles.ownerName}>{owner.name}</div>
-              <div style={styles.contactEmail}>{owner.email}</div>
-              <div style={styles.propertyInfo}>
-                <div>🏢 {owner.houses} House</div>
-                <div>🏢 {owner.apartments} Apartment</div>
-                <div> 🏢{owner.flats} Flats</div>
-                <button style={styles.appointmentButton}>Make Appointment</button>
-              </div>
-            </div>
-          </div>
+          <OwnerCard key={index} owner={owner} />
         ))}
       </div>
     </div>

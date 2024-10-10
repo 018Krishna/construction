@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Header';
 import Bestprop from '../components/Bestprop';
 import Footer from '../components/Footer';
+import { ChevronLeft, ChevronRight, Heart, Share } from 'lucide-react';
 
 const Properties = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,7 +72,6 @@ const Properties = () => {
     },
   ];
 
-  // Filter Properties based on search term and category
   const filteredProperties = allProperties.filter((property) => {
     const matchesSearch =
       property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -93,248 +93,90 @@ const Properties = () => {
     );
   };
 
-  // Styles
-  const carouselContainer = {
-    position: 'relative',
-    width: '100%',
-    maxWidth: '1100px',
-    margin: 'auto',
-    borderRadius: '20px',
-    overflow: 'hidden',
-    backgroundColor: '#e0e0e0',
-    display: 'flex',
-    alignItems: 'center',
-  };
-
-  const propertyCard = {
-    width: '100%',
-    padding: '80px',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '20px',
-    display: 'flex',
-    justifyContent: 'flex-start',
-  };
-
-  const propertyInfo = {
-    maxWidth: '50%',
-    background: 'lightgray',  // The bigger background
-    padding: '40px', 
-    borderRadius: '20px',
-  };
-
-  const titleStyle = {
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  };
-
-  const locationStyle = {
-    fontSize: '1.1rem',
-    color: '#888',
-    marginBottom: '10px',
-  };
-
-  const priceStyle = {
-    fontSize: '1.3rem',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  };
-
-  const iconStyle = {
-    display: 'inline-block',
-    fontSize: '1rem',
-    marginRight: '8px',
-    color: '#555',
-  };
-
-  const detailsStyle = {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    gap: '15px',
-    marginBottom: '15px',
-    color: '#555',
-  };
-
-  const descriptionStyle = {
-    color: '#555',
-    marginBottom: '20px',
-  };
-
-  const buttonStyle = {
-    padding: '10px 20px',
-    backgroundColor: '#ff6f00',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    marginTop: '10px',
-    fontSize: '1rem',
-    display: 'flex',
-    alignItems: 'center',
-  };
-
-  const arrowButtonStyle = {
-    backgroundColor: '#ccc',
-    border: 'none',
-    padding: '10px',
-    borderRadius: '50%',
-    cursor: 'pointer',
-    fontSize: '1.2rem',
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    zIndex: 1,
-  };
-
-  const leftArrowStyle = {
-    left: '15px',
-  };
-
-  const rightArrowStyle = {
-    right: '15px',
-  };
-
-  const containerStyle = {
-    maxWidth: '1200px',
-    margin: 'auto',
-    padding: '20px',
-  };
-
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '20px',
-    
-  };
-
-  const cardStyle = {
-    backgroundColor: '#f5f5f5',
-    borderRadius: '10px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    
-  };
-
-  const imagePlaceholderStyle = {
-    width: '100%',
-    height: '250px',
-    backgroundColor: '#e0e0e0',
-    borderRadius: '8px',
-    marginBottom: '15px',
-  };
-
-  const searchBarStyle = {
-    width: '50%',
-    padding: '10px',
-    marginBottom: '40px',
-    fontSize: '1rem',
-    borderRadius: '10px',
-    border: '1px solid #ccc',
-  };
-
-  const categoryBarStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '20px',
-  };
-
-  const categoryButtonStyle = (category) => ({
-    padding: '10px 20px',
-    margin: '0 10px',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: selectedCategory === category ? '#ff6f00' : '#fff',
-    color: selectedCategory === category ? '#fff' : '#333',
-  });
-
   return (
-    <div>
-      <Navbar />
+    <div className="font-sans">
+      
       {/* Carousel Section */}
-      <div style={carouselContainer}>
-        {/* Left Arrow */}
-        <button
-          style={{ ...arrowButtonStyle, ...leftArrowStyle }}
-          onClick={handlePrev}
-        >
-          
-        </button>
-
-        {/* Property Info */}
-        <div style={propertyCard}>
-          <div style={propertyInfo}>
-            <h2 style={titleStyle}>{filteredProperties[currentIndex]?.title}</h2>
-            <p style={locationStyle}>{filteredProperties[currentIndex]?.location}</p>
-            <p style={priceStyle}>{filteredProperties[currentIndex]?.price}</p>
-
-            
-            <p style={descriptionStyle}>{filteredProperties[currentIndex]?.description}</p>
-            <button style={buttonStyle}>
-              View More <span style={{ marginLeft: '5px' }}>➜</span>
+      <div className="relative max-w-7xl mx-auto my-8 max-sm:mt-0 bg-gray-200 rounded-3xl max-md:rounded-none overflow-hidden">
+        <div className="flex items-center p-4 md:p-16">
+          <div className="w-full md:w-1/2 bg-gray-300 p-8 rounded-2xl max-sm:rounded-lg ">
+            <h2 className="text-3xl font-bold mb-4">{filteredProperties[currentIndex]?.title}</h2>
+            <p className="text-gray-600 mb-2">{filteredProperties[currentIndex]?.location}</p>
+            <p className="text-2xl font-bold mb-4">{filteredProperties[currentIndex]?.price}</p>
+            <p className="text-gray-700 mb-6">{filteredProperties[currentIndex]?.description}</p>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition duration-300 flex items-center">
+              View More <ChevronRight className="ml-2" />
             </button>
           </div>
         </div>
-
-        {/* Right Arrow */}
+        
         <button
-          style={{ ...arrowButtonStyle, ...rightArrowStyle }}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+          onClick={handlePrev}
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
           onClick={handleNext}
         >
-         
+          <ChevronRight size={24} />
         </button>
       </div>
 
       {/* Search and Category Filters */}
-      <div style={containerStyle}>
-        {/* Search Input */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className='flex justify-between items-center max-md:flex-col'>
         <input
           type="text"
           placeholder="Search by title or location"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={searchBarStyle}
+          className="w-full md:w-1/2 p-2 mb-8 text-lg px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
 
-        {/* Category Filter */}
-        <div style={categoryBarStyle}>
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {['All', 'House', 'Apartment', 'Small House', 'Mansion'].map((category) => (
             <button
               key={category}
-              style={categoryButtonStyle(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${
+                selectedCategory === category
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-white text-gray-700 border border-gray-300'
+              }`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
             </button>
           ))}
         </div>
-
+        </div>
         {/* Property Grid */}
-        <div style={gridStyle}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProperties.map((property, index) => (
-            <div key={index} style={cardStyle}>
-              <div style={imagePlaceholderStyle}></div>
-              <h3 style={{fontWeight:'bold'}}>{property.title}</h3>
-              <p>{property.location}</p>
-              <button>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="love" width="40" height="40">
-    <circle cx="256" cy="256" r="244.49" fill="#f25268"></circle>
-    <path fill="#fff" d="M381.91 157.66C339.49 99.28 256 133.72 256 193c0-59.29-83.5-93.74-125.93-35.35C86.23 218 129.45 323.74 256 384.48 382.54 323.74 425.77 218 381.91 157.66z"></path>
-  </svg>
-</button>
-
-            <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="40" viewBox="0 0 24 24" id="share">
-  <path fill="none" d="M0 0h24v24H0V0z"></path>
-  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
-</svg></button>
-              <p style={{ display:'space-between', color: '#050404', fontWeight: 'bold' }}>{property.price}</p>
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-48 bg-gray-300"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">{property.title}</h3>
+                <p className="text-gray-600 mb-4">{property.location}</p>
+                <div className="flex justify-between items-center">
+                  <p className="text-lg font-bold text-orange-500">{property.price}</p>
+                  <div className="flex space-x-2">
+                    <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                      <Heart size={20} />
+                    </button>
+                    <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                      <Share size={20} />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-        <Bestprop />
       </div>
-      <Footer />
+
+      <Bestprop />
     </div>
   );
 };

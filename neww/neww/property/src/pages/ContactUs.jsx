@@ -1,60 +1,60 @@
 import React from 'react';
 import Navbar from '../components/Header';
 import Footer from '../components/Footer';
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const ContactForm = () => {
   return (
-    <div style={styles.formContainer}>
-      <h3 style={styles.formHeading}>Leave a Message For Us</h3>
-      <p style={styles.formDescription}>
+    <div className="bg-gray-100 rounded-lg p-8 max-sm:px-4 lg:w-1/2 lg:ml-20 shadow-md">
+      <h3 className="text-4xl font-bold mb-4">Leave a Message For Us</h3>
+      <p className="text-gray-600 mb-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
       </p>
-      <form style={styles.form}>
-        <div style={styles.inputRow}>
-          <div style={styles.inputColumn}>
-            <p style={styles.Formheading}>First Name</p>
+      <form className="space-y-6">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1">
+            <p className="mb-2 text-sm">First Name</p>
             <input
               type="text"
               placeholder="Ex. Jatin"
-              style={styles.inputField}
+              className="w-full p-3 rounded-full border border-gray-300"
             />
           </div>
-          
-          <div style={styles.inputColumn}>
-            <p style={styles.Formheading}>Second Name</p>
-            <input type="text" placeholder="Ex. Sharma" style={styles.inputField} />
+          <div className="flex-1">
+            <p className="mb-2 text-sm">Second Name</p>
+            <input 
+              type="text" 
+              placeholder="Ex. Sharma" 
+              className="w-full p-3 rounded-full border border-gray-300"
+            />
           </div>
         </div>
         
-        <div style={styles.inputRow}>
-          <div style={styles.inputColumn}>
-            <p style={styles.Formheading}>E-mail</p>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1">
+            <p className="mb-2 text-sm">E-mail</p>
             <input
               type="email"
               placeholder="Ex. Hello@email"
-              style={styles.inputField}
+              className="w-full p-3 rounded-full border border-gray-300"
             />
           </div>
-          
-          <div style={styles.inputColumn}>
-            <p style={styles.Formheading}>Subject</p>
-            <select style={styles.inputField}>
+          <div className="flex-1">
+            <p className="mb-2 text-sm">Subject</p>
+            <select className="w-full p-3 rounded-full border border-gray-300">
               <option>-- Choose Topic --</option>
             </select>
           </div>
         </div>
 
-        <div style={styles.messageContainer}>
-          <p style={styles.Formheading}>Message</p>
+        <div>
+          <p className="mb-2 text-sm">Message</p>
           <textarea
             placeholder="Your message..."
-            style={{ ...styles.inputField, width: '100%', height: '80px', marginBottom: '20px' }}
+            className="w-full p-3 rounded-lg border border-gray-300 h-32"
           />
         </div>
-        <button type="submit" style={styles.submitButton}>
+        <button type="submit" className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg hover:bg-orange-600 transition duration-300">
           Send Message
         </button>
       </form>
@@ -64,23 +64,23 @@ const ContactForm = () => {
 
 const ContactInfo = () => {
   return (
-    <div style={styles.contactInfoContainer}>
-      <h4 style={styles.contactHeading}>STAY TUNED WITH US</h4>
-      <h2 style={styles.contactTitle}>Keep Connected & Lets Get In Touch With Our Team</h2>
-      <p style={styles.contactDescription}>
+    <div className="lg:w-1/2 p-8 max-sm:p-4">
+      <h4 className="text-orange-500 text-sm font-bold mb-2">STAY TUNED WITH US</h4>
+      <h2 className="text-4xl lg:text-5xl font-bold mb-6">Keep Connected & Lets Get In Touch With Our Team</h2>
+      <p className="text-gray-600 mb-8">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <div style={styles.contactDetails}>
-        <div style={styles.contactDetailItem}>
-          <span style={styles.icon}><FaLocationDot /></span>
+      <div className="space-y-4">
+        <div className="flex items-center">
+          <MapPin className="text-orange-500 mr-4" size={24} />
           <p>Our Head Office: Gresik a</p>
         </div>
-        <div style={styles.contactDetailItem}>
-          <span style={styles.icon}><MdEmail /></span>
+        <div className="flex items-center">
+          <Mail className="text-orange-500 mr-4" size={24} />
           <p>Email Address: Hello@Email.com</p>
         </div>
-        <div style={styles.contactDetailItem}>
-          <span style={styles.icon}><FaPhoneAlt /></span>
+        <div className="flex items-center">
+          <Phone className="text-orange-500 mr-4" size={24} />
           <p>Telephone: (+62) 123 456 789</p>
         </div>
       </div>
@@ -90,109 +90,15 @@ const ContactInfo = () => {
 
 const ContactUs = () => {
   return (
-    <div>
-      <Navbar />
-      <div style={styles.contactSection}>
-        <ContactForm />
-        <ContactInfo />
+    <div className="font-sans">
+      <div className=" mx-auto px-0 sm:px-6 lg:px-8 py-16 max-sm:py-8 max-sm:pt-0">
+        <div className="flex flex-col lg:flex-row justify-between">
+          <ContactForm />
+          <ContactInfo />
+        </div>
       </div>
-      <Footer />
     </div>   
   );
-};
-
-const styles = {
-  contactSection: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '40px 20px',
-    fontFamily: 'Arial, sans-serif',
-  },
-  formContainer: {
-    backgroundColor: 'rgba(249, 249, 249, 1)',
-    borderRadius: '10px',
-    marginLeft: '80px',
-    padding: '30px',
-    width: '45%',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  },
-  formHeading: {
-    fontSize: '50px',
-    marginBottom: '10px',
-  },
-  formDescription: {
-    fontSize: '14px',
-    color: '#666',
-    marginBottom: '20px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  inputRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginBottom: '10px',
-  },
-  inputColumn: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '48%',
-  },
-  Formheading: {
-    marginBottom: '5px',
-    fontSize: '14px',
-  },
-  inputField: {
-    padding: '10px',
-    borderRadius: '25px',
-    border: '1px solid #ccc',
-    fontSize: '14px',
-  },
-  submitButton: {
-    backgroundColor: '#F97316',
-    color: '#fff',
-    padding: '10px',
-    border: 'none',
-    borderRadius: '35px',
-    cursor: 'pointer',
-    fontSize: '18px',
-    width:'200px'
-  },
-  contactInfoContainer: {
-    width: '45%',
-    padding: '30px',
-  },
-  contactHeading: {
-    fontSize: '14px',
-    color: '#F97316',
-    textTransform: 'uppercase',
-    marginBottom: '10px',
-  },
-  contactTitle: {
-    fontSize: '54px',
-    marginBottom: '20px',
-    fontWeight:'Bold'
-  },
-  contactDescription: {
-    fontSize: '14px',
-    marginBottom: '20px',
-    color: '#666',
-    lineHeight: '1.6',
-  },
-  contactDetails: {
-    fontSize: '14px',
-  },
-  contactDetailItem: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
-  },
-  icon: {
-    fontSize: '18px',
-    color: '#F97316',
-    marginRight: '10px',
-  },
 };
 
 export default ContactUs;

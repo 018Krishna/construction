@@ -1,136 +1,48 @@
 import React from 'react';
+import { Bed, Bath, ArrowRight } from 'lucide-react';
 
 const KK = () => {
-  const containerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    padding: '40px',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '10px',
-  };
-
-  const leftSectionStyle = {
-    width: '60%',
-  };
-
-  const rightSectionStyle = {
-    width: '35%',
-  };
-
-  const mainImageStyle = {
-    backgroundColor: '#ddd',
-    height: '350px',
-    borderRadius: '10px',
-    position: 'relative',
-  };
-
-  const secondaryImageStyle = {
-    backgroundColor: '#ddd',
-    height: '160px',
-    width: '48%',
-    borderRadius: '10px',
-    marginBottom: '10px',
-  };
-
-  const smallImageContainerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-  };
-
-  const priceTagStyle = {
-    position: 'absolute',
-    bottom: '20px',
-    left: '20px',
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: '10px',
-    padding: '10px',
-    width: '90%',
-  };
-
-  const priceStyle = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '5px',
-  };
-
-  const locationStyle = {
-    fontSize: '14px',
-    color: '#999',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#FF6900',
-    color: 'white',
-    borderRadius: '20px',
-    border: 'none',
-    padding: '10px 20px',
-    fontSize: '14px',
-    position: 'absolute',
-    top: '50%',
-    right: '20px',
-    transform: 'translateY(-50%)',
-  };
-
-  const bedBathStyle = {
-    fontSize: '12px',
-    marginTop: '10px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '100%',
-  };
-
-  const exploreButtonStyle = {
-    backgroundColor: '#FF6900',
-    color: 'white',
-    borderRadius: '30px',
-    border: 'none',
-    padding: '15px 30px',
-    fontSize: '16px',
-    textAlign: 'center',
-    marginTop: '30px',
-    cursor: 'pointer',
-  };
-
   return (
-    <div style={containerStyle}>
-      {/* Left Section */}
-      <div style={leftSectionStyle}>
-        <h2 style={{ fontSize: '32px', fontWeight: 'bold' }}>Some of our Projects</h2>
-        <p style={{ color: '#FF6900', fontSize: '14px', marginBottom: '20px' }}>04 | Projects</p>
-        <p style={{ color: '#666', fontSize: '16px', lineHeight: '1.6' }}>
-          Explore a curated selection of luxury homes and high-end real estate designed to suit your preferences and needs.
-        </p>
-      </div>
+    <div className="bg-gray-100 p-8 rounded-lg">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start">
+        {/* Left Section */}
+        <div className="lg:w-1/2 mb-8 lg:mb-0">
+          <p className="text-orange-500 text-sm font-semibold mb-2">04 | Projects</p>
+          <h2 className="text-3xl font-bold mb-4">Some of our Projects</h2>
+          <p className="text-gray-600">
+            Explore a curated selection of luxury homes and high-end real estate designed to suit your preferences and needs.
+          </p>
+        </div>
 
-      {/* Right Section */}
-      <div style={rightSectionStyle}>
-        <div style={mainImageStyle}>
-          {/* Price Tag */}
-          <div style={priceTagStyle}>
-            <div style={priceStyle}>₹10,800,000</div>
-            <div style={locationStyle}>Noida Sun City, Miami Beach, FL</div>
-            <div style={bedBathStyle}>
-              <span>6 bedrooms</span>
-              <span>7 bathrooms</span>
+        {/* Right Section */}
+        <div className="lg:w-1/2 w-full">
+          <div className="bg-gray-300 h-64 rounded-lg relative mb-4">
+            {/* Price Tag */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black text-white p-4 rounded-lg">
+              <div className="text-xl font-bold mb-1">₹10,800,000</div>
+              <div className="text-sm text-gray-300 mb-2">Noida Sun City, Miami Beach, FL</div>
+              
+              <div className="flex justify-between text-xs">
+                <span className="flex items-center"><Bed size={16} className="mr-1" /> 6 bedrooms</span>
+                <span className="flex items-center"><Bath size={16} className="mr-1" /> 7 bathrooms</span>
+              </div>
+              <button className="bg-orange-500 text-white px-4 py-2 mt-2 rounded-full text-sm w-full">
+                Book Now
+              </button>
             </div>
-            <button style={buttonStyle}>Book Now</button>
           </div>
-        </div>
 
-        <div style={smallImageContainerStyle}>
-          {/* Secondary Image */}
-          <div style={secondaryImageStyle}></div>
-          <div style={secondaryImageStyle}></div>
-        </div>
-        <div style={smallImageContainerStyle}>
-          {/* Small Images */}
-          <div style={secondaryImageStyle}></div>
-          <div style={secondaryImageStyle}></div>
-        </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gray-300 h-32 rounded-lg"></div>
+            <div className="bg-gray-300 h-32 rounded-lg"></div>
+            <div className="bg-gray-300 h-32 rounded-lg"></div>
+            <div className="bg-gray-300 h-32 rounded-lg"></div>
+          </div>
 
-        <button style={exploreButtonStyle}>Explore More Properties</button>
+          <button className="mt-6 bg-orange-500 text-white px-6 py-3 rounded-full flex items-center justify-center w-full">
+            Explore More Properties <ArrowRight size={20} className="ml-2" />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,54 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const styles = {
-    header: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '10px 20px',
-    },
-    logo: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      marginLeft: '40px',
-    },
-    nav: {
-      display: 'flex',
-      gap: '20px',
-    },
-    navLink: {
-      textDecoration: 'none',
-      color: '#333',
-      fontWeight: '500',
-    },
-    navLink4: {
-      textDecoration: 'none',
-      color: 'rgba(239, 109, 17, 1)',
-      fontWeight: '500',
-    },
-    signUpButton: {
-      backgroundColor: '#ff6b00',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '25px',
-      padding: '10px 20px',
-      cursor: 'pointer',
-      marginRight: '40px',
-    },
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header style={styles.header}>
-      <div style={styles.logo}>Teja Builders</div>
-      <nav style={styles.nav}>
-        <Link to="/" style={styles.navLink}>Home</Link>
-        <Link to="/properties" style={styles.navLink}>Properties</Link>
-        <Link to="/about-us" style={styles.navLink}>About Us</Link>
-        <Link to="/contact-us" style={styles.navLink4}>Contact</Link>
-      </nav>
-      <button style={styles.signUpButton}>Sign Up</button>
+    <header className="bg-white mt-4 ">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold">Teja Builders</div>
+        
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-6">
+          <Link to="/" className="text-gray-700 hover:text-gray-900">Home</Link>
+          <Link to="/properties" className="text-gray-700 hover:text-gray-900">Properties</Link>
+          <Link to="/about-us" className="text-gray-700 hover:text-gray-900">About Us</Link>
+          <Link to="/contact-us" className="text-orange-500 hover:text-orange-600">Contact</Link>
+        </nav>
+        
+        <button className="hidden md:block bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300">
+          Sign Up
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <nav className="md:hidden shadow-lg py-4">
+          <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/properties" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Properties</Link>
+          <Link to="/about-us" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>About Us</Link>
+          <Link to="/contact-us" className="block px-4 py-2 text-orange-500 hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <button className="mx-4 mt-2 w-calc(100% - 2rem) bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300" onClick={() => setIsMenuOpen(false)}>
+            Sign Up
+          </button>
+        </nav>
+      )}
     </header>
   );
 };

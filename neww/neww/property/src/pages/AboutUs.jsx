@@ -1,197 +1,65 @@
 import React from 'react';
 import Navbar from '../components/Header';
 import Main from '../components/Main';
-import { SlCalender } from "react-icons/sl";
-import { LuTrophy } from "react-icons/lu";
-
-// Inline styles
-const styles = {
-  container: {
-    padding: '40px',
-    fontFamily: 'Arial, sans-serif',
-    maxWidth: '1200px',
-    margin: '0 auto',
-  },
-  aboutSection: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '40px',
-  },
-  imageWrapper: {
-    position: 'relative',
-    top:'-120px',
-    left:'-60px'
-  },
-  largeImage: {
-    width: '500px',
-    height: '570px',
-    backgroundColor: '#d0d0d0',
-    borderRadius: '17px',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-  },
-  smallImage: {
-    width: '480px',
-    height: '520px',
-    backgroundColor: '#d0d0d0',
-    borderRadius: '17px',
-    
-    position: 'absolute',
-    top: '50px',
-    left: '80px',
-    marginTop:'80px',
-    marginLeft:'70px'
-  },
-  clientBadge: {
-    backgroundColor: '#ff6600',
-    color: '#fff',
-    padding: '10px 20px',
-    borderRadius: '20px',
-    position: 'absolute',
-    top:'500px',
-    bottom: '20px',
-    left: '40px',
-    fontWeight: 'bold',
-    width:'250px',
-    height:'120px',   
-  },
-  textSection: {
-    maxWidth: '500px',
-    position:'relative',
-    top:'200px'
-  },
-  title: {
-    fontSize: '47px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-    marginTop:'20px',
-    width:'650px'
-    
-
-    
-  },
-  description: {
-    fontSize: '16px',
-    color: '#666',
-    lineHeight: '1.6',
-    marginBottom: '20px',
-  },
-  list: {
-    listStyleType: 'none',
-    padding: '0',
-  },
-  listItem: {
-    display: 'flex',
-    alignItems: 'center',
-    fontSize: '16px',
-    color: '#333',
-    marginBottom: '10px',
-  },
-  icon: {
-    marginRight: '10px',
-    fontSize: '20px',
-    color: '#ff6600',
-  },
-  learnMoreButton: {
-    padding: '10px 30px',
-    backgroundColor: '#ff6600',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '30px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    fontSize: '14px',
-    marginTop:'20px'
-  },
-  statsSection: {
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    paddingTop:'40px',
-    paddingBottom:'40px',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '10px',
-    position:'relative',
-    top:'380px',
-  },
-  statItem: {
-    textAlign: 'center',
-  },
-  statNumber: {
-    fontSize: '36px',
-    fontWeight: 'bold',
-    color: '#ff6600',
-  },
-  statLabel: {
-    fontSize: '14px',
-    color: '#666',
-    marginTop: '5px',
-  },
-};
+import { Calendar, Trophy } from 'lucide-react';
 
 const AboutUs = () => {
   return (
-    <div>
-        <Navbar />
-    <div style={styles.container}>
-      {/* About Section */}
-      <div style={styles.aboutSection}>
-        {/* Left: Images */}
-        
-        <div style={styles.imageWrapper}>
-          <div style={styles.largeImage}></div>
-          <div style={styles.smallImage}></div>
-          <div style={styles.clientBadge}>
-            <p style={{fontSize:'60px',marginLeft:'35px'}}>120+</p>
-            <p style={{marginTop:'-20px',marginLeft:'40px'}}>Happy Chients</p>
+    <div className="font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 max-sm:pt-2">
+        {/* About Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-20">
+          {/* Left: Images */}
+          <div className="relative w-[80%] lg:w-1/2 mb-12 lg:mb-0">
+            <div className="bg-gray-300 rounded-2xl w-full h-[570px] lg:w-[500px]"></div>
+            <div className="bg-gray-300 rounded-2xl w-full h-[520px] lg:w-[480px] absolute top-20 left-12 lg:top-32 lg:left-20"></div>
+            <div className="bg-orange-500 text-white p-4 rounded-2xl absolute bottom-0 left-4 lg:bottom-4 lg:left-8 w-64">
+              <p className="text-5xl font-bold mb-2">120+</p>
+              <p className="text-lg">Happy Clients</p>
+            </div>
+          </div>
+
+          {/* Right: Text Section */}
+          <div className="w-full lg:w-1/2 lg:pl-12 mt-12 lg:mt-0">
+            <span className="text-gray-600 uppercase">ABOUT US</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mt-2 mb-6">We Are in This Business Since 15 Years</h2>
+            <p className="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-center">
+                <Trophy className="text-orange-500 mr-3" size={24} />
+                <span>20+ Winning Awards</span>
+              </li>
+              <li className="flex items-center">
+                <Calendar className="text-orange-500 mr-3" size={24} />
+                <span>15 Years Of Experience</span>
+              </li>
+            </ul>
+            <button className="mt-8 bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition duration-300">
+              Learn More
+            </button>
           </div>
         </div>
 
-        {/* Right: Text Section */}
-        <div style={styles.textSection}>
-        <span style={{color:'#333'}}>ABOUT US</span>       
-          <h2 style={styles.title}>We Are in This Business Since 15 Years</h2>
-          <p style={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <ul style={styles.list}>
-            <li style={styles.listItem}>
-              <span style={styles.icon}><LuTrophy /></span>
-              20+ Winning Awards
-            </li>
-            <li style={styles.listItem}>
-              <span style={styles.icon}><SlCalender /></span>
-              15 Years Of Experience
-            </li>
-          </ul>
-          <button style={styles.learnMoreButton}>Learn More</button>
+        {/* Stats Section */}
+        <div className="bg-gray-100 rounded-lg py-12 px-4 mt-24 flex flex-wrap justify-around">
+          {[
+            { number: '386', label: 'House Design' },
+            { number: '56', label: 'Our Partner' },
+            { number: '78', label: 'House Package' },
+            { number: '15Y', label: 'Years Of Experience' },
+          ].map((stat, index) => (
+            <div key={index} className="text-center mb-8 lg:mb-0">
+              <div className="text-4xl font-bold text-orange-500">{stat.number}</div>
+              <div className="text-gray-600 mt-2">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
 
-      {/* Stats Section */}
-      <div style={styles.statsSection}>
-        <div style={styles.statItem}>
-          <div style={styles.statNumber}>386</div>
-          <div style={styles.statLabel}>House Design</div>
-        </div>
-        <div style={styles.statItem}>
-          <div style={styles.statNumber}>56</div>
-          <div style={styles.statLabel}>Our Partner</div>
-        </div>
-        <div style={styles.statItem}>
-          <div style={styles.statNumber}>78</div>
-          <div style={styles.statLabel}>House Package</div>
-        </div>
-        <div style={styles.statItem}>
-          <div style={styles.statNumber}>15Y</div>
-          <div style={styles.statLabel}>Years Of Experience</div>
-        </div>
-      </div>
-    
-    <Main />
+      <Main />
     </div>
   );
 };

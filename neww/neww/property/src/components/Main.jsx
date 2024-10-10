@@ -1,13 +1,31 @@
-import React from 'react'; import Footer from './Footer'; import { FaFacebook } from "react-icons/fa"; import { FaInstagram } from "react-icons/fa"; import { FaTwitter } from "react-icons/fa"; const LeaderCard = ({ name }) => { return ( <div style={styles.leaderCard}> <div style={{width:'50%',backgroundColor:'#d0d0d0',borderRadius:'25px 0px 0px 25px'}}> </div> <div style={{width:'50%',}}> <h3 style={styles.leaderName}>{name}</h3> <p style={styles.leaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <div style={styles.iconContainer}> <i style={styles.icon}><FaFacebook /></i> <i style={styles.icon}><FaInstagram /></i> <i style={styles.icon}><FaTwitter /></i> </div> </div> </div> ); };
+import React from 'react';
+import { Facebook, Instagram, Twitter, Check } from 'lucide-react';
+
+const LeaderCard = ({ name }) => {
+  return (
+    <div className="bg-orange-500 text-white rounded-3xl overflow-hidden flex">
+      <div className="w-1/2 bg-gray-300"></div>
+      <div className="w-1/2 p-6">
+        <h3 className="text-2xl font-bold mb-4">{name}</h3>
+        <p className="mb-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div className="flex space-x-4">
+          <Facebook size={20} />
+          <Instagram size={20} />
+          <Twitter size={20} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const OurVision = () => {
   return (
-    <div style={styles.visionContainer}>
-      <h4 style={styles.visionHeading}>OUR VISION</h4>
-      <h2 style={styles.visionTitle}>
+    <div className="mb-16">
+      <h4 className="text-orange-500 text-sm font-semibold mb-2">OUR VISION</h4>
+      <h2 className="text-3xl font-bold mb-4">
         Give More Better House Interior Design & Decoration For All Clients
       </h2>
-      <p style={styles.visionText}>
+      <p className="text-gray-600">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </div>
@@ -16,47 +34,67 @@ const OurVision = () => {
 
 const OurMission = () => {
   return (
-    <div style={styles.missionContainer}>
-      <div style={styles.missionContent}>
-        <h4 style={styles.missionHeading}>Our Mission</h4>
-        <ul style={styles.missionList}>
-          <div style={{display:'flex'}}>
-            <h2 style={{fontSize:'40px',marginTop:'-6px',color:'#F97316'}}>01</h2>
-            <li style={styles.missionItem}>
-            <h5 style={styles.missionTitle}>Have Better Team Certification</h5>
-            <p style={styles.missionDescription}>Lorem ipsum dolor sit amet consectetur</p>
-          </li>
-          </div>
-          <div style={{display:'flex'}}>
-            <h2 style={{fontSize:'40px',marginTop:'-6px',color:'#F97316'}}>02</h2>
-            <li style={styles.missionItem}>
-            <h5 style={styles.missionTitle}>Keep Updated With Trend</h5>
-            <p style={styles.missionDescription}>Lorem ipsum dolor sit amet consectetur</p>
-          </li>
-          </div>
-          <div style={{display:'flex'}}>
-            <h2 style={{fontSize:'40px',marginTop:'-6px',color:'#F97316'}}>03</h2>
-            <li style={styles.missionItem}>
-            <h5 style={styles.missionTitle}>Best Materials Used</h5>
-            <p style={styles.missionDescription}>Lorem ipsum dolor sit amet consectetur</p>
-          </li>
-          </div>
-          
-          
+    <div className="flex flex-col lg:flex-row gap-8">
+      <div className="lg:w-1/2 bg-gray-100 rounded-lg p-8">
+        <h4 className="text-2xl font-bold text-orange-500 mb-6">Our Mission</h4>
+        <ul className="space-y-6">
+          {[1, 2, 3].map((num) => (
+            <li key={num} className="flex items-start">
+              <span className="text-4xl font-bold text-orange-500 mr-4">{num.toString().padStart(2, '0')}</span>
+              <div>
+                <h5 className="text-lg font-semibold mb-2">Mission Title {num}</h5>
+                <p className="text-gray-600">Lorem ipsum dolor sit amet consectetur</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
-      <div style={styles.quoteSection}>
-        <blockquote style={styles.quoteText}>
+      <div className="lg:w-1/2 bg-gray-100 rounded-lg p-8">
+        <blockquote className="text-xl italic mb-4">
           "Lorem ipsum dolor sit amet consectetur adipiscing elit."
         </blockquote>
-        <p style={styles.quoteDescription}>
+        <p className="text-gray-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
         </p>
+      </div>
+    </div>
+  );
+};
+
+const FeedbackCard = ({ text, author }) => {
+  return (
+    <div className="bg-white rounded-3xl p-6 shadow-lg">
+      <div className="text-orange-500 mb-4">{'★'.repeat(5)}</div>
+      <p className="mb-4 text-gray-600">"{text}"</p>
+      <div className="flex items-center">
+        <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+        <div>
+          <p className="font-semibold">{author}</p>
+          <p className="text-sm text-orange-500">{author}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const FeedbackSection = () => {
+  return (
+    <div className="bg-neutral-100 py-16 mt-8 px-4 rounded-lg">
+      <div className="container mx-auto px-4">
+        <h4 className="text-orange-500 text-sm font-semibold mb-2">WHAT THEY SAY</h4>
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold">Best Feedback From Clients</h2>
+          <a href="#reviews" className="text-orange-500 hover:underline">See All Reviews →</a>
+        </div>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="lg:w-1/2 bg-gray-300 rounded-lg h-64 flex items-center justify-center">
+            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl">▶</div>
+          </div>
+          <div className="lg:w-1/2 space-y-6">
+            <FeedbackCard text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor" author="Mr. Aslam" />
+            <FeedbackCard text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor" author="Mr. Aslam" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -64,343 +102,18 @@ const OurMission = () => {
 
 const Main = () => {
   return (
-    <div style={styles.pageContainer}>
-      <h2 style={styles.mainLeadersHeading}>ALL OF THEM</h2>
-      <h2 style={styles.mainLeadersHeadingg}>Our Main Leaders</h2>
-      <div style={styles.leadersContainer}>
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-center text-sm text-gray-600 mb-2">ALL OF THEM</h2>
+      <h2 className="text-center text-4xl font-bold mb-12">Our Main Leaders</h2>
+      <div className="grid md:grid-cols-2 gap-8 mb-16">
         <LeaderCard name="Abdul Salam" />
         <LeaderCard name="Abdul Salam" />
       </div>
       <OurVision />
       <OurMission />
-      
       <FeedbackSection />
     </div>
   );
 };
-
-const FeedbackCard = ({ text, author }) => {
-    return (
-      <div style={styles.feedbackCard}>
-        <div style={styles.stars}>
-          {'★'.repeat(5)}
-        </div>
-        <p style={styles.feedbackText}>
-          “ {text} ”
-        </p>
-        <div style={styles.authorContainer}>
-          <div style={styles.authorImage} />
-          <div>
-            <p style={styles.authorName}>{author}</p>
-            <p style={styles.authorRole}>{author}</p>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  
-  const FeedbackSection = () => {
-    return (
-      <div style={styles.feedbackSection}>
-  <h4 style={styles.subHeading}>WHAT THEY SAY</h4>
-  <div style={styles.header}>
-    <h2 style={styles.mainHeading}>Best Feedback From Clients</h2>
-    <a href="#reviews" style={styles.viewAllLink}>See All Reviews →</a>
-  </div>
-  <div style={styles.feedbackContent}>
-    {/* Video Placeholder */}
-    <div style={styles.videoPlaceholder}>
-      <div style={styles.playButton}>▶</div>
-    </div>
-    
-    {/* Feedback Cards */}
-    <div style={styles.feedbackCards}>
-      <FeedbackCard 
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor" 
-        author="Mr. Aslam"
-        style={{
-          marginLeft: '-40px',   // Overlap the first card to the left
-          position: 'relative',   // Ensure it stays in flow but overlaps
-          zIndex: 2,              // Bring it above the video placeholder
-        }}
-      />
-      <FeedbackCard 
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor" 
-        author="Mr. Aslam"
-        style={{
-          position: 'relative',
-          zIndex: 2,              // Set the second card behind
-        }}
-      />
-    </div>
-  </div>
-</div>
-
-    );
-  };
-
-const styles = {
-  pageContainer: {
-    fontFamily: 'Arial, sans-serif',
-    color: '#333',
-    padding: '40px 20px',
-    position:'relative',
-    top:'400px'
-  },
-  mainLeadersHeading: {
-    fontSize: '14px',
-    textAlign: 'center',
-    marginBottom: '0px',
-    textTransform: 'uppercase',
-  },
-  mainLeadersHeadingg: {
-    fontSize: '44px',
-    textAlign: 'center',
-    marginBottom: '40px',
-    fontWeight:'bold'
-  },
-  leadersContainer: {
-    display: 'flex',
-    gap:'30px',
-    alignItems:'cetre',
-    marginBottom: '60px',
-    marginLeft:'150px',
-    marginRight:'150px'
-
-  },
-  leaderCard: {
-    backgroundColor: '#F97316',
-    display:'flex',
-    color: '#fff',
-    width: '600px',
-    borderRadius: '25px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    textAlign: 'center',
-    height:'250px',
-  },
-  leaderName: {
-    fontSize: '35px',
-    marginBottom: '10px',
-    fontWeight:'bold',
-    position:'relative',
-    top:'40px',
-    left:'-2px'
-  },
-  leaderText: {
-    fontSize: '18px',
-    marginBottom: '20px',
-    position:'relative',
-    top:'40px',
-    textAlign:'left',
-    marginLeft:'40px',
-    width:'180px',
-    fontWeight:'150',
-        
-  },
-  iconContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '10px',
-    position:'relative',
-    top:'27px',
-    left:'-75px'
-  },
-  icon: {
-    fontSize: '18px',
-  },
-  visionContainer: {
-    textAlign: 'left',
-    marginBottom: '60px',
-    marginLeft:'150px'
-  },
-  visionHeading: {
-    fontSize: '14px',
-    color: '#F97316',
-    textTransform: 'uppercase',
-    marginBottom: '10px',
-  },
-  visionTitle: {
-    fontSize: '40px',
-    marginBottom: '20px',
-    fontWeight:'bold',
-    width:'900px'
-  },
-  visionText: {
-    fontSize: '14px',
-    maxWidth: '100%',
-    marginLeft:'2px',
-    lineHeight: '1.8',
-    
-  },
-  missionContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    gap: '20px',
-    marginTop: '40px',
-  },
-  missionContent: {
-    flex: '1',
-    backgroundColor:'#f9f9f9',
-    marginLeft:'150px',
-    borderRadius:'20px',
-    maxWidth:'550px',
-    height:'350px'
-  },
-  missionHeading: {
-    fontSize: '25px',
-    color: '#F97316',
-    marginBottom: '20px',
-    marginLeft:'50px',
-    marginTop:'45px',
-    fontWeight:'bold',
-  },
-  missionList: {
-    listStyleType: 'none',
-    paddingLeft: '0',
-    marginLeft:'50px',
-    marginTop:'30px'
-  },
-  missionItem: {
-    marginBottom: '20px',
-    marginLeft:'10px'
-  },
-  missionTitle: {
-    fontSize: '16px',
-    marginBottom: '5px',
-  },
-  missionDescription: {
-    fontSize: '14px',
-  },
-  quoteSection: {
-    flex: '1',
-    backgroundColor: '#f9f9f9',
-    padding: '30px',
-    borderRadius: '8px',
-    maxWidth:'550px',
-    height:'350px',
-    marginRight:'150px',
-    
-  },
-  quoteText: {
-    fontSize: '16px',
-    fontStyle: 'italic',
-    marginBottom: '20px',
-  },
-  quoteDescription: {
-    fontSize: '14px',
-    lineHeight: '1.8',
-  },
-
-feedbackSection: {
-  paddingTop:'10px',
-  
-    fontFamily: 'Arial, sans-serif',
-    color: '#333',
-    lineHeight: '1.6',
-    marginTop:'100px',
-    backgroundColor:'#f9f9f9',
-    
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '40px',
-  },
-  subHeading: {
-    color: '#F97316',
-    textTransform: 'uppercase',
-    fontSize: '14px',
-    letterSpacing: '1px',
-    marginTop:'80px',
-    marginLeft:'160px'
-  },
-  mainHeading: {
-    fontSize: '30px',
-    fontWeight:'bold',
-    marginTop:'20px',
-    marginLeft:'160px'
-  },
-  viewAllLink: {
-    color: '#F97316',
-    textDecoration: 'none',
-    fontSize: '14px',
-    marginRight:'160px'
-  },
-  feedbackContent: {
-    display: 'flex',
-    gap: '20px',
-    marginLeft:'160px'
-  },
-  videoPlaceholder: {
-    backgroundColor: '#E5E5E5',
-    width: '500px',
-    height: '320px',
-    borderRadius: '10px',
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex:1
-  },
-  playButton: {
-    backgroundColor: '#F97316',
-    color: '#fff',
-    borderRadius: '50%',
-    width: '60px',
-    height: '60px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '24px',
-    cursor: 'pointer',
-  },
-  feedbackCards: {
-    display: 'flex',
-    gap: '20px',
-    height:'250px',
-    marginTop:'35px',
-    marginLeft:'-120px',
-    position:'relative',
-    zIndex:1
-  },
-  feedbackCard: {
-    backgroundColor: '#fff',
-    borderRadius: '25px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    padding: '20px',
-    width: '350px',
-  },
-  stars: {
-    color: '#F97316',
-    fontSize: '18px',
-    marginBottom: '10px',
-  },
-  feedbackText: {
-    fontSize: '14px',
-    marginBottom: '20px',
-  },
-  authorContainer: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  authorImage: {
-    width: '40px',
-    height: '40px',
-    backgroundColor: '#E5E5E5',
-    borderRadius: '50%',
-    marginRight: '10px',
-  },
-  authorName: {
-    fontSize: '14px',
-    fontWeight: 'bold',
-    marginBottom: '2px',
-  },
-  authorRole: {
-    fontSize: '12px',
-    color: '#F97316',
-  },
-};
-
 
 export default Main;

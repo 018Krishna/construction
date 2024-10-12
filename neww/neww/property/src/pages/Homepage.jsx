@@ -42,16 +42,16 @@ const HomePage = () => {
   return (
     <div className="font-sans text-gray-800 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-      <section className="text-center py-12 sm:py-20 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Find Your Dream Home with Teja Builders</h1>
-        <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+      <section className="text-center  py-12 sm:py-20 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0">
+        <h1 className="text-4xl  sm:text-5xl lg:text-6xl font-bold mb-6 text-left">Find Your Dream Home with Teja Builders</h1>
+        <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl  text-left">
           Explore an exclusive selection of prime real estate tailored to match your lifestyle and preferences. Whether you're seeking a family home, a luxurious apartment, or a smart investment.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-          <button className="bg-orange-500 text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">Explore Properties</button>
+        <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
+          <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">Explore Properties</button>
           <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">Get In Touch</button>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+        <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
           <div className="flex items-center text-lg">
             <TiTickOutline className="text-green-500 mr-2" /> Professional Team
           </div>
@@ -140,25 +140,79 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 px-8 mb-16 bg-neutral-50 mt-16 rounded-lg sm:mx-0">
-        <div className="flex flex-col lg:flex-row gap-12">
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl font-bold mb-6">Comprehensive Real Estate Services Tailored to You</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Explore a curated selection of luxury homes and high-end real estate designed to suit your preferences and needs.
-            </p>
+      <div className="container mx-auto px-4 py-12">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-4">
+          Comprehensive Real Estate Services Tailored to You
+        </h1>
+        <p className="text-gray-600 max-w-xl mx-auto mb-8">
+          Explore a curated selection of luxury homes and high-end real estate
+          designed to suit your preferences and needs
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Property Sales */}
+        <div className="flex flex-col items-center">
+          <div className="w-60 h-80 bg-gray-200 rounded-lg mb-4 overflow-hidden transform transition-transform duration-300 hover:scale-110 touch:scale-125">
+            <img
+              src="path-to-your-image.jpg"
+              alt="Property Sales"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {['Property Sales', 'Rental Management', 'Investment Consulting', 'Home Staging Marketing'].map((service, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-md">
-                <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
-                <h3 className="text-xl font-bold text-orange-500 mb-2">{service}</h3>
-                <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-xl font-semibold text-orange-600 mb-2">Property Sales</h3>
+          <p className="text-center text-gray-600">
+            Whether you're buying your first home or looking to upgrade.
+          </p>
         </div>
-      </section>
+
+        {/* Rental Management */}
+        <div className="flex flex-col items-center">
+          <div className="w-60 h-80 bg-gray-200 rounded-lg mb-4 overflow-hidden transform transition-transform duration-300 hover:scale-110 touch:scale-125">
+            <img
+              src="path-to-your-image.jpg"
+              alt="Rental Management"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-xl font-semibold text-orange-600 mb-2">Rental Management</h3>
+          <p className="text-center text-gray-600">
+            Let us take care of your rental property with our professional
+            management services.
+          </p>
+        </div>
+
+        {/* Investment Consulting */}
+        <div className="flex flex-col items-center">
+          <div className="w-60 h-80 bg-gray-200 rounded-lg mb-4 overflow-hidden transform transition-transform duration-300 hover:scale-110 touch:scale-125">
+            <img
+              src="path-to-your-image.jpg"
+              alt="Investment Consulting"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-xl font-semibold text-orange-600 mb-2">Investment Consulting</h3>
+          <p className="text-center text-gray-600">
+            Navigating the world of real estate investments can be complex.
+          </p>
+        </div>
+
+        {/* Home Staging Marketing */}
+        <div className="flex flex-col items-center">
+          <div className="w-60 h-80 bg-gray-200 rounded-lg mb-4 overflow-hidden transform transition-transform duration-300 hover:scale-110 touch:scale-125">
+            <img
+              src="path-to-your-image.jpg"
+              alt="Home Staging Marketing"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-xl font-semibold text-orange-600 mb-2">Home Staging Marketing</h3>
+          <p className="text-center text-gray-600">
+            First impressions matter. Our home staging and marketing services.
+          </p>
+        </div>
+      </div>
+    </div>
 
       {/* Projects Section */}
       <KK />

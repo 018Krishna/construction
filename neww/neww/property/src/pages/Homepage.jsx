@@ -40,10 +40,10 @@ const HomePage = () => {
   ];
   
   return (
-    <div className="font-sans text-gray-800 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
     
       <section className="text-center  py-12 sm:py-20 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0">
-        <h1 className="text-4xl  sm:text-5xl lg:text-6xl font-bold mb-6 text-left">Find Your Dream Home with Teja Builders</h1>
+        <h1 className="text-4xl  sm:text-5xl lg:text-6xl font-bold mb-6 text-left">Find Your Dream Home<br></br> with Teja Builders</h1>
         <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl  text-left">
           Explore an exclusive selection of prime real estate tailored to match your lifestyle and preferences. Whether you're seeking a family home, a luxurious apartment, or a smart investment.
         </p>
@@ -228,7 +228,7 @@ const HomePage = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-md">
+            <div key={index} className="bg-gray-200 rounded-lg p-6 shadow-md">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>

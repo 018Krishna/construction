@@ -19,6 +19,15 @@ const HomePage = () => {
       price: '₹600,000',
     },
     {
+      id: 1,
+      title: 'Charming Suburban Homes',
+      location: 'A-3 Paschim Vihar, New Delhi',
+      beds: 3,
+      baths: 3,
+      area: '1500 sq ft',
+      price: '₹600,000',
+    },
+    {
       id: 2,
       title: 'Spacious Family Houses',
       location: 'A-3 Paschim Vihar, New Delhi',
@@ -95,49 +104,56 @@ const HomePage = () => {
       </section>
 
       {/* Featured Properties Section */}
-      <section className="bg-neutral-100 p-8  rounded-lg  sm:mx-0">
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
-          <div>
-            <p className="text-orange-500 text-sm font-bold mb-2">02 | Featured</p>
-            <h2 className="text-3xl sm:text-4xl font-bold">Featured Properties</h2>
-          </div>
-          <button className="mt-4 sm:mt-0 bg-orange-500 text-white rounded-full px-4 py-[6px] text-lg hover:bg-orange-600 transition duration-300 sm:py-3 sm:px-8">View More</button>
-        </div>
+      <section className="bg-neutral-100 p-8 rounded-lg sm:mx-0">
+  <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+    <div>
+      <p className="text-orange-500 text-sm font-bold mb-2">02 | Featured</p>
+      <h2 className="text-3xl sm:text-4xl font-bold">Featured Properties</h2>
+    </div>
+    <button className="mt-4 sm:mt-0 bg-orange-500 text-white rounded-full px-4 py-[6px] text-lg hover:bg-orange-600 transition duration-300 sm:py-3 sm:px-8">
+      View More
+    </button>
+  </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
-            <div
-              key={property.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <div className="h-48 bg-gray-300"></div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">{property.title}</h3>
-                <p className="text-gray-600 mb-4">{property.location}</p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-2">
-                    <button className="text-gray-500 hover:text-red-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
-                        <circle cx="256" cy="256" r="244.49" fill="#f25268"></circle>
-                        <path fill="#fff" d="M381.91 157.66C339.49 99.28 256 133.72 256 193c0-59.29-83.5-93.74-125.93-35.35C86.23 218 129.45 323.74 256 384.48 382.54 323.74 425.77 218 381.91 157.66z"></path>
-                      </svg>
-                    </button>
-                    <button className="text-gray-500 hover:text-blue-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="none" d="M0 0h24v24H0V0z"></path>
-                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">{property.price}</button>
-                </div>
+  {/* Wrapping container for the animated cards */}
+  <div className="overflow-hidden">
+    <div className="flex space-x-8 animate-marquee">
+      {[...properties, ...properties].map((property, index) => (
+        <div
+          key={index}  // Unique key needed even for duplicate entries
+          className="bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-xl min-w-[300px]"
+        >
+          <div className="h-48 bg-gray-300"></div>
+          <div className="p-6">
+            <h3 className="font-bold text-xl mb-2">{property.title}</h3>
+            <p className="text-gray-600 mb-4">{property.location}</p>
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-2">
+                <button className="text-gray-500 hover:text-red-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                    <circle cx="256" cy="256" r="244.49" fill="#f25268"></circle>
+                    <path fill="#fff" d="M381.91 157.66C339.49 99.28 256 133.72 256 193c0-59.29-83.5-93.74-125.93-35.35C86.23 218 129.45 323.74 256 384.48 382.54 323.74 425.77 218 381.91 157.66z"></path>
+                  </svg>
+                </button>
+                <button className="text-gray-500 hover:text-blue-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path>
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
+                  </svg>
+                </button>
               </div>
+              <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">
+                {property.price}
+              </button>
             </div>
-          ))}
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Services Section */}
       <div className="container mx-auto px-4 py-12">
@@ -222,7 +238,7 @@ const HomePage = () => {
         <p className="text-orange-500 text-sm font-bold mb-2">05 | Testimonials</p>
         <div className="flex flex-col lg:flex-row justify-between items-start mb-12">
           <h2 className="text-4xl font-bold mb-6 lg:w-1/2">What Our Clients Say</h2>
-          <p className="text-gray-600 lg:w-1/2">
+          <p className="text-gray-600 lg:w-1/2" style={{ fontSize: '16.57px' }}>
             Hear from our satisfied clients who have found their dream homes with Teja Builders. Their experiences reflect our unwavering commitment to excellence and our dedication to ensuring every client's satisfaction. From the initial consultation to the final closing, we strive to make the home-buying process seamless and enjoyable.
           </p>
         </div>

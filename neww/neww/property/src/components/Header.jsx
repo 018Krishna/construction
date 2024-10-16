@@ -7,9 +7,9 @@ const Navbar = () => {
 
   return (
     <header className="bg-white mt-4">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-8 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">Teja Builders</div>
-
+       
         
         <button
           className="md:hidden"
